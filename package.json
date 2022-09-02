@@ -1,7 +1,7 @@
 {
-  "name": "quotes-api",
+  "name": "ex-api-template",
   "version": "1.0.0",
-  "description": "An Authentication API using Json Web Tokens",
+  "description": "An API template starter powered by Express",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ysn4irix/auth-api-v3.git"
+    "url": "git+https://github.com/ysn4irix/ex-api-template.git"
   },
   "keywords": [
     "api",
-    "authentication",
-    "jwt"
+    "express",
+    "nodejs"
   ],
   "author": "Ysn4Irix",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ysn4irix/auth-api-v3/issues"
+    "url": "https://github.com/ysn4irix/ex-api-template/issues"
   },
-  "homepage": "https://github.com/ysn4irix/auth-api-v3#readme",
+  "homepage": "https://github.com/ysn4irix/ex-api-template#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
