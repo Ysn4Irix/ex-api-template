@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
-const uptime = require('../controllers/index.controller')
+const { alive } = require('../controllers/index.controller')
 
-router.get('/', uptime)
+router.get('/', alive)
 
 module.exports = router

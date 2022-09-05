@@ -7,12 +7,12 @@
  */
 
 const success = (message, results, statusCode) => {
-    return {
-        message,
-        error: false,
-        code: statusCode,
-        results
-    }
+	return {
+		message,
+		error: false,
+		code: statusCode,
+		results
+	}
 }
 
 /**
@@ -23,18 +23,18 @@ const success = (message, results, statusCode) => {
  */
 
 const error = (message, statusCode) => {
-    const codes = [200, 201, 400, 401, 404, 403, 422, 500]
+	const codes = [200, 201, 400, 401, 404, 403, 422, 500]
 
-    const codeFinder = codes.find((code) => code === statusCode)
+	const codeFinder = codes.find(code => code === statusCode)
 
-    if (!codeFinder) statusCode = 500
-    else statusCode = codeFinder
+	if (!codeFinder) statusCode = 500
+	else statusCode = codeFinder
 
-    return {
-        message,
-        code: statusCode,
-        error: true
-    }
+	return {
+		message,
+		code: statusCode,
+		error: true
+	}
 }
 
 /**
@@ -43,17 +43,17 @@ const error = (message, statusCode) => {
  * @param   {array} errors
  */
 
-const validation = (errors) => {
-    return {
-        message: "Validation errors",
-        error: true,
-        code: 422,
-        errors
-    }
+const validation = errors => {
+	return {
+		message: 'Validation errors',
+		error: true,
+		code: 422,
+		errors
+	}
 }
 
 module.exports = {
-    success,
-    error,
-    validation
+	success,
+	error,
+	validation
 }
