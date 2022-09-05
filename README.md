@@ -46,15 +46,19 @@ API includes Server utilities:
 * [response-time](https://www.npmjs.com/package/response-time)
   * response-time is a node.js package for creating a middleware that records the response time for requests in HTTP servers.
 * [winston](https://www.npmjs.com/package/winston)
-  * winston is a node.js logger package that logs errors into file.
+  * winston is a node.js logger package that logs errors into file/console/database.
 
 Development utilities:
 
 * [nodemon](https://www.npmjs.com/package/nodemon)
   * nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
-* [@types/node](https://www.npmjs.com/package/eslint)
+* [cross-env](https://www.npmjs.com/package/cross-env)
+  * cross-env is a node.js package that used to run scripts that set and use environment variables across platforms.
+* [@types/express](https://www.npmjs.com/package/@types/express)
+  * @types/express is a node.js package that contains type definitions for Express.js.
+* [@types/node](https://www.npmjs.com/package/@types/node)
   * @types/node is a node.js package that contains type definitions for Node.js.
-* [prettier](https://www.npmjs.com/package/jest)
+* [prettier](https://www.npmjs.com/package/prettier)
   * Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 
 ### Setup
