@@ -1,14 +1,26 @@
 const uptimeFormat = require('../helpers/upTime')
-const {
-    success
-} = require('../helpers/apiResponse')
+const { success, error } = require('../helpers/apiResponse')
+const logger = require('../helpers/logger')
 
 module.exports = {
 	alive: (req, res) => {
-		res.status(200).json(
-			success("🎉I'm alive", {
-				upTime: uptimeFormat(process.uptime())
+		try {
+			res.status(200).json(
+				success("🎉I'm alive", {
+					upTime: uptimeFormat(process.uptime())
+				})
+			)
+		} catch (err) {
+			logger.error({
+				message: err.message,
+				stack: err.stack
 			})
-		)
+			res.status(500).json(
+				error(
+					'Oops! We have an problem in our backend 😢',
+					res.statusCode
+				)
+			)
+		}
 	}
 }

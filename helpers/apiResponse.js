@@ -33,7 +33,8 @@ const error = (message, statusCode) => {
 	return {
 		message,
 		code: statusCode,
-		error: true
+		error: true,
+		timestamp: new Date()
 	}
 }
 
