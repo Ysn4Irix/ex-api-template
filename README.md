@@ -88,7 +88,7 @@ npm run dev
 ```
 ex-api-template.
 │   .env
-│   .prettierrc.json
+│   .prettierrc
 │   .gitignore
 │   LICENCE
 │   package.json
