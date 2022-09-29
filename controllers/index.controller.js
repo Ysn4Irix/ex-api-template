@@ -3,7 +3,7 @@ const { success, error } = require('../helpers/apiResponse')
 const logger = require('../helpers/logger')
 
 module.exports = {
-	alive: (req, res) => {
+	alive: (_, res) => {
 		try {
 			res.status(200).json(
 				success("🎉I'm alive", {
@@ -11,10 +11,7 @@ module.exports = {
 				})
 			)
 		} catch (err) {
-			logger.error({
-				message: err.message,
-				stack: err.stack
-			})
+			logger.error(err.message)
 			res.status(500).json(
 				error(
 					'Oops! We have an problem in our backend 😢',
