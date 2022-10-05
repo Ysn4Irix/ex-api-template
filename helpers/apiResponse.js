@@ -4,6 +4,7 @@
  * @param   {string} message
  * @param   {object | array} results
  * @param   {number} statusCode
+ * @returns {object} object
  */
 
 const success = (message, results, statusCode) => {
@@ -20,6 +21,7 @@ const success = (message, results, statusCode) => {
  *
  * @param   {string} message
  * @param   {number} statusCode
+ * @returns {object} object
  */
 
 const error = (message, statusCode) => {
@@ -42,6 +44,7 @@ const error = (message, statusCode) => {
  * @desc    Send any validation response
  *
  * @param   {array} errors
+ * @returns {object} object
  */
 
 const validation = errors => {

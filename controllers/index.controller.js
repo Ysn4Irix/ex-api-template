@@ -3,6 +3,12 @@ const { success, error } = require('../helpers/apiResponse')
 const logger = require('../helpers/logger')
 
 module.exports = {
+	/**
+	 * @desc check whatever the server is up or not
+	 * @param {import('@types/express').Request} _
+	 * @param {import('@types/express').Response} res
+	 * @returns {object} object
+	 */
 	alive: (_, res) => {
 		try {
 			res.status(200).json(
