@@ -6,8 +6,9 @@ const cors = require('cors')
 const responseTime = require('response-time')
 const logger = require('./helpers/logger')
 const app = express()
+const { PORT, NODE_ENV } = process.env
 
-if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
+if (NODE_ENV === 'development') app.use(morgan('dev'))
 app.use(responseTime())
 app.use(helmet())
 app.use(cors())
@@ -22,10 +23,9 @@ app.use('/api', require('./routes/index.route'))
 
 app.use(require('./middlewares/notFoundHandler'))
 
-const port = process.env.PORT
-const server = app.listen(port, () => {
+const server = app.listen(PORT, () => {
 	logger.success(
-		`🚀 Server started => listening on PORT: ${port} with processId: ${process.pid}`
+		`🚀 Server started => listening on PORT: ${PORT} with processId: ${process.pid}`
 	)
 })
 
