@@ -5,6 +5,7 @@ const helmet = require('helmet')
 const cors = require('cors')
 const responseTime = require('response-time')
 const logger = require('./helpers/logger')
+const { router } = require('./routes')
 const app = express()
 const { PORT, NODE_ENV } = process.env
 
@@ -19,7 +20,7 @@ app.use(
 	})
 )
 
-app.use('/api', require('./routes/index.route'))
+app.use('/api', router)
 
 app.use(require('./middlewares/notFoundHandler'))
 

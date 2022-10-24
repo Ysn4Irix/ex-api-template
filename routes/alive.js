@@ -2,6 +2,6 @@ const router = require('express').Router()
 
 const { alive } = require('../controllers/index.controller')
 
-router.get('/alive', alive)
+router.get('/', alive)
 
-module.exports = router
+module.exports = { router }
