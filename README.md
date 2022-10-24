@@ -27,10 +27,10 @@ Requires Node.js 15.0 or higher download & install for [Windows](https://nodejs.
 
 ```sh
 # Recommended.
-npx gen-express-api --directory my-api-name
+npx ex-api-cli --directory my-api-name
 
 # OR an alternative global install.
-npm install --location=global gen-express-api
+npm install -g ex-api-cli
 ```
 
 API includes Server utilities:
