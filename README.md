@@ -110,7 +110,8 @@ ex-api-template.
 │       notFoundHandler.js
 │
 └───routes
-        index.route.js
+        alive.js
+        index.js
 ```
 
 <br>
