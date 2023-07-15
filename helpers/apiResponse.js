@@ -1,30 +1,27 @@
 /**
- * @desc    Send any success response
- *
- * @param   {string} message
- * @param   {object | array} results
- * @param   {number} statusCode
- * @returns {object} object
+ * @param {string} message
+ * @param {object} response
+ * @param {number} statusCode
+ * @returns An object
  */
 
-const success = (message, results, statusCode) => {
+const success = (message, statusCode, response) => {
 	return {
-		message,
 		error: false,
-		code: statusCode,
-		results
+		message,
+		statusCode,
+		response
 	}
 }
 
 /**
- * @desc    Send any error response
- *
- * @param   {string} message
- * @param   {number} statusCode
- * @returns {object} object
+ * @param {string} message
+ * @param {object} response
+ * @param {string} statusCode
+ * @returns returns an object
  */
 
-const error = (message, statusCode) => {
+const error = (message, statusCode, response) => {
 	const codes = [200, 201, 400, 401, 404, 403, 422, 500]
 
 	const codeFinder = codes.find(code => code === statusCode)
@@ -33,31 +30,14 @@ const error = (message, statusCode) => {
 	else statusCode = codeFinder
 
 	return {
+		error: true,
 		message,
-		code: statusCode,
-		error: true,
-		timestamp: new Date()
-	}
-}
-
-/**
- * @desc    Send any validation response
- *
- * @param   {array} errors
- * @returns {object} object
- */
-
-const validation = errors => {
-	return {
-		message: 'Validation errors',
-		error: true,
-		code: 422,
-		errors
+		statusCode,
+		response
 	}
 }
 
 module.exports = {
 	success,
-	error,
-	validation
+	error
 }
