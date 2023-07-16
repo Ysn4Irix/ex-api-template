@@ -32,14 +32,16 @@ app.use('/api', router)
 app.use(require('./middlewares/notFoundHandler'))
 
 const PORT = process.env.PORT || 5000
+const HOST = process.env.HOST || 'localhost'
 app.listen(PORT, () => {
 	logger.info(
-		`🚀 Server started => listening on PORT: ${PORT} with processId: ${process.pid}`
+		`🚀 Server started at ${HOST} on PORT ${PORT} with processId: ${process.pid}`
 	)
 })
 
 process.on('unhandledRejection', (reason, promise) => {
 	logger.error('Unhandled Rejection at:', promise, 'reason:', reason)
+	process.exit(1)
 })
 
 process.on('uncaughtException', error => {
