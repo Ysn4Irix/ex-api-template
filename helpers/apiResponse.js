@@ -1,27 +1,27 @@
 /**
- * @param {string} message
+ * @param {string} statusMessage
  * @param {object} response
  * @param {number} statusCode
  * @returns An object
  */
 
-const success = (message, statusCode, response) => {
+const successResponse = (statusMessage, statusCode, response) => {
 	return {
-		error: false,
-		message,
+		isError: false,
+		statusMessage,
 		statusCode,
 		response
 	}
 }
 
 /**
- * @param {string} message
- * @param {object} response
+ * @param {string} statusMessage
+ * @param {object} error
  * @param {string} statusCode
  * @returns returns an object
  */
 
-const error = (message, statusCode, response) => {
+const errorResponse = (statusMessage, statusCode, error) => {
 	const codes = [200, 201, 400, 401, 404, 403, 422, 500]
 
 	const codeFinder = codes.find(code => code === statusCode)
@@ -30,14 +30,14 @@ const error = (message, statusCode, response) => {
 	else statusCode = codeFinder
 
 	return {
-		error: true,
-		message,
+		isError: true,
+		statusMessage,
 		statusCode,
-		response
+		error
 	}
 }
 
 module.exports = {
-	success,
-	error
+	successResponse,
+	errorResponse
 }
