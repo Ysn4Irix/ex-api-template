@@ -32,7 +32,7 @@ app.use('/api', router)
 app.use(require('./middlewares/notFoundHandler'))
 
 const PORT = process.env.PORT || 5000
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
 	logger.info(
 		`🚀 Server started => listening on PORT: ${PORT} with processId: ${process.pid}`
 	)
