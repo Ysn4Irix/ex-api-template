@@ -7,6 +7,7 @@ const favicon = require('serve-favicon')
 const responseTime = require('response-time')
 const { join } = require('path')
 const logger = require('./helpers/logger')
+const { notFound, errorHandler } = require('./middlewares/errorHandler')
 const { router } = require('./routes')
 const app = express()
 
@@ -29,7 +30,8 @@ app.use(
 
 app.use('/api', router)
 
-app.use(require('./middlewares/notFoundHandler'))
+app.use(notFound)
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 const HOST = process.env.HOST || 'localhost'
