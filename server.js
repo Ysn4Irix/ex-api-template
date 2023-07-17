@@ -8,6 +8,8 @@ const responseTime = require('response-time')
 const { join } = require('path')
 const logger = require('./helpers/logger')
 const { notFound, errorHandler } = require('./middlewares/errorHandler')
+const rateLimiter = require('./middlewares/rateLimiterHandler')
+const speedLimiter = require('./middlewares/speedLimiterHandler')
 const { router } = require('./routes')
 const app = express()
 
@@ -28,7 +30,7 @@ app.use(
 	})
 )
 
-app.use('/api', router)
+app.use('/api', rateLimiter, speedLimiter, router)
 
 app.use(notFound)
 app.use(errorHandler)
